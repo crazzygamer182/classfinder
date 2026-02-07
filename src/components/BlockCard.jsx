@@ -1,6 +1,26 @@
 import { motion } from "framer-motion";
 
 export default function BlockCard({ blockNum, block, index }) {
+  const isFree = block?.class === "Free";
+
+  if (block && isFree) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.85 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: index * 0.04, type: "spring", stiffness: 300, damping: 24 }}
+        className="bg-blue-50 border-2 border-blue-200 rounded-xl p-3.5 min-h-[80px]
+                   flex flex-col justify-center items-center text-center"
+      >
+        <div className="text-[0.7rem] font-bold uppercase tracking-wider text-blue-500 mb-1">
+          Block {blockNum}
+        </div>
+        <div className="text-lg mb-0.5 text-blue-400">~</div>
+        <div className="text-xs text-blue-500 font-medium">Free</div>
+      </motion.div>
+    );
+  }
+
   if (block) {
     return (
       <motion.div
