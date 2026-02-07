@@ -156,7 +156,7 @@
         "6": {
           "class": "Marketing",
           "teacher": "Mr. Chow",
-          "room": "2120"
+          "room": "2117"
         },
         "8": {
           "class": "AP Calculus",
@@ -370,18 +370,23 @@
         }
       }
     },
-    "aspen": {
-      "name": "Aspen",
+    "aspen kent": {
+      "name": "Aspen Kent",
       "blocks": {
         "1": {
           "class": "Economics",
           "teacher": "Mr. Chow",
-          "room": "2120"
+          "room": "2117"
         },
         "6": {
           "class": "Marketing",
           "teacher": "Mr. Chow",
-          "room": "2120"
+          "room": "2117"
+        },
+        "8": {
+          "class": "English",
+          "teacher": "Mr. Williams",
+          "room": ""
         }
       }
     },
@@ -691,7 +696,7 @@
         "6": {
           "class": "Marketing",
           "teacher": "Mr. Chow",
-          "room": "2120"
+          "room": "2117"
         }
       }
     },
@@ -810,16 +815,6 @@
         }
       }
     },
-    "aspen kent": {
-      "name": "Aspen Kent",
-      "blocks": {
-        "8": {
-          "class": "English",
-          "teacher": "Mr. Williams",
-          "room": ""
-        }
-      }
-    },
     "beck yu": {
       "name": "Beck Yu",
       "blocks": {
@@ -833,6 +828,21 @@
     "clara jang": {
       "name": "Clara Jang",
       "blocks": {
+        "2": {
+          "class": "Marketing",
+          "teacher": "Mr. Chow",
+          "room": "2117"
+        },
+        "5": {
+          "class": "Free",
+          "teacher": "",
+          "room": ""
+        },
+        "6": {
+          "class": "Free",
+          "teacher": "",
+          "room": ""
+        },
         "8": {
           "class": "English",
           "teacher": "Mr. Williams",
@@ -854,9 +864,9 @@
       "name": "Darius Paraschiv",
       "blocks": {
         "4": {
-          "class": "Economics",
+          "class": "Marketing",
           "teacher": "Mr. Chow",
-          "room": "2120"
+          "room": "2117"
         },
         "8": {
           "class": "English",
@@ -931,7 +941,7 @@
         "6": {
           "class": "Marketing",
           "teacher": "Mr. Chow",
-          "room": "2120"
+          "room": "2117"
         },
         "8": {
           "class": "English",
@@ -1341,7 +1351,7 @@
         "6": {
           "class": "Marketing",
           "teacher": "Mr. Chow",
-          "room": "2120"
+          "room": "2117"
         }
       }
     },
@@ -1524,9 +1534,9 @@
       "name": "Marketing",
       "teacher": "Mr. Chow",
       "block": 6,
-      "room": "2120",
+      "room": "2117",
       "students": [
-        "Aspen",
+        "Aspen Kent",
         "Mia Jukic",
         "Percy Routh",
         "Mark Chow",
@@ -1562,9 +1572,9 @@
       "name": "Economics",
       "teacher": "Mr. Chow",
       "block": 1,
-      "room": "2120",
+      "room": "2117",
       "students": [
-        "Aspen"
+        "Aspen Kent"
       ]
     },
     {
@@ -1727,12 +1737,21 @@
       ]
     },
     {
-      "name": "Economics",
+      "name": "Marketing",
       "teacher": "Mr. Chow",
       "block": 4,
-      "room": "2120",
+      "room": "2117",
       "students": [
         "Darius Paraschiv"
+      ]
+    },
+    {
+      "name": "Marketing",
+      "teacher": "Mr. Chow",
+      "block": 2,
+      "room": "2117",
+      "students": [
+        "Clara Jang"
       ]
     },
     {

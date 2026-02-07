@@ -22,7 +22,7 @@ export default function useStudentData() {
     let totalKnown = 0;
     for (const key of keys) {
       const blocks = data.students[key].blocks || {};
-      totalKnown += Object.values(blocks).filter((b) => b.class !== "Free").length;
+      totalKnown += Object.values(blocks).length;
     }
     return { count, avgKnown: +(totalKnown / count).toFixed(1) };
   }, [data]);
@@ -35,7 +35,7 @@ export default function useStudentData() {
     return keys.map((key) => ({
       key,
       ...data.students[key],
-      known: Object.values(data.students[key].blocks || {}).filter((b) => b.class !== "Free").length,
+      known: Object.values(data.students[key].blocks || {}).length,
     }));
   }, [data]);
 
