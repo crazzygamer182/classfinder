@@ -6,11 +6,33 @@
       "Bash(npm run build:*)",
       "Bash(git pull:*)",
       "Bash(copy:*)",
-      "Bash(npx vite build)"
+      "Bash(npx vite build)",
+      "mcp__supabase__list_tables",
+      "mcp__supabase__get_project_url",
+      "mcp__supabase__get_publishable_keys",
+      "mcp__supabase__apply_migration",
+      "mcp__supabase__execute_sql",
+      "mcp__supabase__get_advisors",
+      "Bash(node -e:*)",
+      "Bash(node check_diff.js:*)",
+      "Bash(ren \"C:\\\\Users\\\\nirma\\\\Documents\\\\programming_projects\\\\classf\\\\check_diff.js\" check_diff.cjs)",
+      "Bash(node check_diff.cjs:*)",
+      "Bash(node:*)",
+      "Bash(pip show:*)",
+      "mcp__supabase__search_docs",
+      "Bash(python3:*)",
+      "Bash(pip install:*)",
+      "Bash(python extract_faces.py:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(python:*)",
+      "Bash(curl:*)",
+      "mcp__supabase__list_migrations",
+      "mcp__supabase__list_edge_functions",
+      "mcp__supabase__list_extensions"
     ]
   },
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "supabase"
-  ],
-  "enableAllProjectMcpServers": true
+  ]
 }

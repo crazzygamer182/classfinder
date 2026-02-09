@@ -1,43 +1,50 @@
 import { useState, useEffect, useMemo } from "react";
+import { supabase } from "../supabaseClient";
 
 const TOTAL_BLOCKS = 8;
 
 export default function useStudentData() {
-  const [data, setData] = useState({ students: {}, classes: [] });
+  const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [refreshKey, setRefreshKey] = useState(0);
+
+  const refetch = () => setRefreshKey((k) => k + 1);
 
   useEffect(() => {
-    fetch("/data.json")
-      .then((res) => res.json())
-      .then((json) => setData(json))
-      .catch(() => setData({ students: {}, classes: [] }))
-      .finally(() => setLoading(false));
-  }, []);
+    supabase
+      .from("students")
+      .select("key, name, blocks")
+      .then(({ data, error }) => {
+        if (error || !data) {
+          setStudents([]);
+        } else {
+          setStudents(data);
+        }
+        setLoading(false);
+      });
+  }, [refreshKey]);
 
   const stats = useMemo(() => {
-    const keys = Object.keys(data.students);
-    const count = keys.length;
+    const count = students.length;
     if (count === 0) return { count: 0, avgKnown: 0 };
 
     let totalKnown = 0;
-    for (const key of keys) {
-      const blocks = data.students[key].blocks || {};
-      totalKnown += Object.values(blocks).length;
+    for (const s of students) {
+      totalKnown += Object.keys(s.blocks || {}).length;
     }
     return { count, avgKnown: +(totalKnown / count).toFixed(1) };
-  }, [data]);
+  }, [students]);
 
   const sortedStudents = useMemo(() => {
-    const keys = Object.keys(data.students);
-    keys.sort((a, b) =>
-      data.students[a].name.localeCompare(data.students[b].name)
-    );
-    return keys.map((key) => ({
-      key,
-      ...data.students[key],
-      known: Object.values(data.students[key].blocks || {}).length,
-    }));
-  }, [data]);
+    return [...students]
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .map((s) => ({
+        key: s.key,
+        name: s.name,
+        blocks: s.blocks || {},
+        known: Object.keys(s.blocks || {}).length,
+      }));
+  }, [students]);
 
-  return { students: sortedStudents, stats, loading, totalBlocks: TOTAL_BLOCKS };
+  return { students: sortedStudents, stats, loading, totalBlocks: TOTAL_BLOCKS, refetch };
 }

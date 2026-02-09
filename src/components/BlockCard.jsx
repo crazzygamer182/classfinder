@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export default function BlockCard({ blockNum, block, index }) {
+export default function BlockCard({ blockNum, block, index, onSuggestEdit }) {
   const isFree = block?.class === "Free";
 
   if (block && isFree) {
@@ -17,6 +17,14 @@ export default function BlockCard({ blockNum, block, index }) {
         </div>
         <div className="text-lg mb-0.5 text-teal-400">~</div>
         <div className="text-xs text-teal-600 font-medium">Free</div>
+        {onSuggestEdit && (
+          <button
+            onClick={() => onSuggestEdit(blockNum)}
+            className="text-[0.6rem] text-teal-400 hover:text-teal-600 mt-1.5 transition-colors"
+          >
+            Edit
+          </button>
+        )}
       </motion.div>
     );
   }
@@ -42,6 +50,14 @@ export default function BlockCard({ blockNum, block, index }) {
         {block.room && (
           <div className="text-[0.65rem] text-gray-400 mt-0.5">Room {block.room}</div>
         )}
+        {onSuggestEdit && (
+          <button
+            onClick={() => onSuggestEdit(blockNum)}
+            className="text-[0.6rem] text-emerald-400 hover:text-emerald-600 mt-1.5 transition-colors self-start"
+          >
+            Suggest Edit
+          </button>
+        )}
       </motion.div>
     );
   }
@@ -59,6 +75,14 @@ export default function BlockCard({ blockNum, block, index }) {
       </div>
       <div className="text-2xl mb-0.5">?</div>
       <div className="text-xs">Unknown</div>
+      {onSuggestEdit && (
+        <button
+          onClick={() => onSuggestEdit(blockNum)}
+          className="text-[0.65rem] text-teal-500 hover:text-teal-700 font-medium mt-1.5 transition-colors"
+        >
+          Know this? Add it!
+        </button>
+      )}
     </motion.div>
   );
 }

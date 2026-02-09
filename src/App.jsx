@@ -1,14 +1,27 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import StudentList from "./components/StudentList";
 import StudentModal from "./components/StudentModal";
+import AdminPage from "./components/AdminPage";
 import useStudentData from "./hooks/useStudentData";
 
+function getPage() {
+  return window.location.hash === "#admin" ? "admin" : "main";
+}
+
 export default function App() {
-  const { students, stats, loading } = useStudentData();
+  const { students, stats, loading, refetch } = useStudentData();
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState(null);
+  const [page, setPage] = useState(getPage);
+  const [adminPassword, setAdminPassword] = useState("");
+
+  useEffect(() => {
+    const onHash = () => setPage(getPage());
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
 
   const handleClose = useCallback(() => setSelected(null), []);
 
@@ -17,6 +30,17 @@ export default function App() {
       <div className="h-full bg-gray-100 flex items-center justify-center">
         <div className="text-gray-400 text-sm">Loading...</div>
       </div>
+    );
+  }
+
+  if (page === "admin") {
+    return (
+      <AdminPage
+        students={students}
+        refetch={refetch}
+        adminPassword={adminPassword}
+        setAdminPassword={setAdminPassword}
+      />
     );
   }
 

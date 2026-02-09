@@ -1,10 +1,18 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ScheduleGrid from "./ScheduleGrid";
+import SuggestEditForm from "./SuggestEditForm";
 
 const TOTAL_BLOCKS = 8;
 
 export default function StudentModal({ student, onClose }) {
+  const [editingBlock, setEditingBlock] = useState(null);
+
+  // Reset editing state when student changes
+  useEffect(() => {
+    setEditingBlock(null);
+  }, [student]);
+
   // Lock body scroll when open
   useEffect(() => {
     if (student) {
@@ -18,13 +26,19 @@ export default function StudentModal({ student, onClose }) {
   // Escape to close
   useEffect(() => {
     function handleKey(e) {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") {
+        if (editingBlock) {
+          setEditingBlock(null);
+        } else {
+          onClose();
+        }
+      }
     }
     if (student) {
       document.addEventListener("keydown", handleKey);
       return () => document.removeEventListener("keydown", handleKey);
     }
-  }, [student, onClose]);
+  }, [student, onClose, editingBlock]);
 
   const known = student ? Object.keys(student.blocks || {}).length : 0;
   const pct = Math.round((known / TOTAL_BLOCKS) * 100);
@@ -95,8 +109,21 @@ export default function StudentModal({ student, onClose }) {
               </span>
             </div>
 
-            {/* Schedule grid */}
-            <ScheduleGrid blocks={student.blocks} />
+            {/* Schedule grid or edit form */}
+            {editingBlock ? (
+              <SuggestEditForm
+                studentKey={student.key}
+                studentName={student.name}
+                blockNumber={editingBlock}
+                existingBlock={student.blocks?.[String(editingBlock)] || null}
+                onClose={() => setEditingBlock(null)}
+              />
+            ) : (
+              <ScheduleGrid
+                blocks={student.blocks}
+                onSuggestEdit={setEditingBlock}
+              />
+            )}
           </motion.div>
         </motion.div>
       )}

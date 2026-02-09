@@ -1,12 +1,18 @@
 export default function Header({ count, avgKnown }) {
   return (
     <header
-      className="shrink-0 text-white px-4 pb-3 text-center"
+      className="shrink-0 text-white px-4 pb-3 text-center relative"
       style={{
         background: "linear-gradient(135deg, #4ECDC4 0%, #3BA8A0 100%)",
         paddingTop: "calc(env(safe-area-inset-top, 0px) + 0.75rem)",
       }}
     >
+      <a
+        href="#admin"
+        className="absolute right-3 top-3 text-[0.7rem] text-white/50 hover:text-white/80 transition-colors"
+      >
+        Admin
+      </a>
       <div className="flex items-center justify-center gap-2">
         <svg
           width="26"
