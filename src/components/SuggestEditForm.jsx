@@ -48,7 +48,7 @@ export default function SuggestEditForm({ studentKey, studentName, blockNumber, 
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3">
+    <form onSubmit={handleSubmit} className="space-y-3 pb-4">
       <div className="flex items-center justify-between mb-2">
         <h3 className="text-sm font-bold text-gray-700">
           {existingBlock ? "Suggest Correction" : "Add Info"} &mdash; Block {blockNumber}
@@ -56,14 +56,14 @@ export default function SuggestEditForm({ studentKey, studentName, blockNumber, 
         <button
           type="button"
           onClick={onClose}
-          className="text-xs text-gray-400 hover:text-gray-600 transition-colors"
+          className="text-xs text-gray-400 active:text-gray-600 py-2 px-3 -mr-3 transition-colors"
         >
           Cancel
         </button>
       </div>
 
       {existingBlock && (
-        <div className="text-xs text-gray-400 bg-gray-50 rounded-lg p-2 mb-1">
+        <div className="text-xs text-gray-400 bg-gray-50 rounded-lg p-2.5 mb-1">
           Current: {existingBlock.class}
           {existingBlock.teacher && ` / ${existingBlock.teacher}`}
           {existingBlock.room && ` / Room ${existingBlock.room}`}
@@ -79,9 +79,8 @@ export default function SuggestEditForm({ studentKey, studentName, blockNumber, 
           value={className}
           onChange={(e) => setClassName(e.target.value)}
           placeholder="e.g. AP Chemistry"
-          className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm
+          className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-[16px]
                      focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent"
-          autoFocus
         />
       </div>
 
@@ -92,7 +91,7 @@ export default function SuggestEditForm({ studentKey, studentName, blockNumber, 
           value={teacher}
           onChange={(e) => setTeacher(e.target.value)}
           placeholder="e.g. Mr. Smith"
-          className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm
+          className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-[16px]
                      focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent"
         />
       </div>
@@ -104,7 +103,7 @@ export default function SuggestEditForm({ studentKey, studentName, blockNumber, 
           value={room}
           onChange={(e) => setRoom(e.target.value)}
           placeholder="e.g. 204"
-          className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm
+          className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-[16px]
                      focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent"
         />
       </div>
@@ -116,7 +115,7 @@ export default function SuggestEditForm({ studentKey, studentName, blockNumber, 
           value={submitter}
           onChange={(e) => setSubmitter(e.target.value)}
           placeholder="e.g. Jane"
-          className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm
+          className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-[16px]
                      focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent"
         />
       </div>
@@ -126,8 +125,8 @@ export default function SuggestEditForm({ studentKey, studentName, blockNumber, 
       <button
         type="submit"
         disabled={submitting}
-        className="w-full bg-teal-500 hover:bg-teal-600 text-white font-semibold
-                   py-2.5 rounded-lg text-sm transition-colors disabled:opacity-50"
+        className="w-full bg-teal-500 active:bg-teal-600 text-white font-semibold
+                   py-3 rounded-lg text-sm transition-colors disabled:opacity-50"
       >
         {submitting ? "Submitting..." : "Submit Suggestion"}
       </button>

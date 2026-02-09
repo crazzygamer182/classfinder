@@ -9,7 +9,8 @@ export default function Header({ count, avgKnown }) {
     >
       <a
         href="#admin"
-        className="absolute right-3 top-3 text-[0.7rem] text-white/50 hover:text-white/80 transition-colors"
+        className="absolute right-3 text-[0.7rem] text-white/50 active:text-white/80 py-1 px-2 transition-colors"
+        style={{ top: "calc(env(safe-area-inset-top, 0px) + 0.5rem)" }}
       >
         Admin
       </a>

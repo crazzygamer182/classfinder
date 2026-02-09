@@ -20,7 +20,7 @@ export default function BlockCard({ blockNum, block, index, onSuggestEdit }) {
         {onSuggestEdit && (
           <button
             onClick={() => onSuggestEdit(blockNum)}
-            className="text-[0.6rem] text-teal-400 hover:text-teal-600 mt-1.5 transition-colors"
+            className="text-[0.65rem] text-teal-400 active:text-teal-600 mt-1 py-1.5 px-3 -mb-1.5 transition-colors"
           >
             Edit
           </button>
@@ -53,7 +53,7 @@ export default function BlockCard({ blockNum, block, index, onSuggestEdit }) {
         {onSuggestEdit && (
           <button
             onClick={() => onSuggestEdit(blockNum)}
-            className="text-[0.6rem] text-emerald-400 hover:text-emerald-600 mt-1.5 transition-colors self-start"
+            className="text-[0.65rem] text-emerald-400 active:text-emerald-600 mt-1 py-1.5 px-1 -mb-1.5 -ml-1 transition-colors self-start"
           >
             Suggest Edit
           </button>
@@ -78,7 +78,7 @@ export default function BlockCard({ blockNum, block, index, onSuggestEdit }) {
       {onSuggestEdit && (
         <button
           onClick={() => onSuggestEdit(blockNum)}
-          className="text-[0.65rem] text-teal-500 hover:text-teal-700 font-medium mt-1.5 transition-colors"
+          className="text-[0.65rem] text-teal-500 active:text-teal-700 font-medium mt-1 py-1.5 px-3 -mb-1.5 transition-colors"
         >
           Know this? Add it!
         </button>

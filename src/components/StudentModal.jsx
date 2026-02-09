@@ -61,7 +61,7 @@ export default function StudentModal({ student, onClose }) {
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={{ type: "spring", damping: 28, stiffness: 300 }}
-            drag="y"
+            drag={editingBlock ? false : "y"}
             dragConstraints={{ top: 0 }}
             dragElastic={0.2}
             onDragEnd={(_, info) => {
