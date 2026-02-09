@@ -2,9 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Safe area insets for notched devices */
+/* Safe area insets for notched devices — left/right/bottom only.
+   Top is handled by the header background extending into the notch. */
 html {
-  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+  padding: 0 env(safe-area-inset-right)
     env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 

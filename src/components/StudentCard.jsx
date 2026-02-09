@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 function badgeClasses(known) {
-  if (known === 8) return "bg-green-100 text-green-600";
+  if (known === 8) return "bg-teal-100 text-teal-700";
   if (known >= 4) return "bg-amber-100 text-amber-600";
   return "bg-red-100 text-red-600";
 }

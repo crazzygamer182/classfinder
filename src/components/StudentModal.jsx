@@ -87,7 +87,7 @@ export default function StudentModal({ student, onClose }) {
                   initial={{ width: 0 }}
                   animate={{ width: `${pct}%` }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="h-full bg-green-500 rounded-full"
+                  className="h-full bg-teal-500 rounded-full"
                 />
               </div>
               <span className="text-sm font-semibold text-gray-400 whitespace-nowrap">

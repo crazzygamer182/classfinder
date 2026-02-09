@@ -9,7 +9,7 @@ export default function SearchBar({ value, onChange }) {
         autoComplete="off"
         className="w-full px-4 py-3 text-base bg-white border-2 border-gray-300 rounded-xl
                    outline-none transition-colors duration-200
-                   focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20
+                   focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20
                    placeholder:text-gray-400"
       />
     </div>
