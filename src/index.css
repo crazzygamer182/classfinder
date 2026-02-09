@@ -2,16 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Safe area insets for notched devices — left/right/bottom only.
-   Top is handled by the header background extending into the notch. */
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
 html {
   padding: 0 env(safe-area-inset-right)
     env(safe-area-inset-bottom) env(safe-area-inset-left);
+  background: #4ECDC4;
 }
 
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #f3f4f6;
 }
 
 /* Hide scrollbar on modal backdrop while keeping scroll functional */

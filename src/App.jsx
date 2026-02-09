@@ -14,17 +14,19 @@ export default function App() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+      <div className="h-full bg-gray-100 flex items-center justify-center">
         <div className="text-gray-400 text-sm">Loading...</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="h-full flex flex-col bg-gray-100">
       <Header count={stats.count} avgKnown={stats.avgKnown} />
       <SearchBar value={query} onChange={setQuery} />
-      <StudentList students={students} query={query} onSelect={setSelected} />
+      <div className="flex-1 overflow-y-auto overscroll-y-contain pt-2 pb-6">
+        <StudentList students={students} query={query} onSelect={setSelected} />
+      </div>
       <StudentModal student={selected} onClose={handleClose} />
     </div>
   );

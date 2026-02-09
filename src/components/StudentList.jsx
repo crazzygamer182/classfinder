@@ -18,7 +18,7 @@ export default function StudentList({ students, query, onSelect }) {
   }
 
   return (
-    <main className="px-4 pb-6 flex flex-col gap-2.5 sm:max-w-[600px] sm:mx-auto sm:px-6">
+    <main className="px-4 flex flex-col gap-2.5 sm:max-w-[600px] sm:mx-auto sm:px-6">
       {filtered.map((student, i) => (
         <StudentCard
           key={student.key}

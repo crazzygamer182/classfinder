@@ -358,6 +358,11 @@
     "sofija kresic": {
       "name": "Sofija Kresic",
       "blocks": {
+        "1": {
+          "class": "Free",
+          "teacher": "",
+          "room": ""
+        },
         "3": {
           "class": "Chemistry",
           "teacher": "Mr. Jansen",

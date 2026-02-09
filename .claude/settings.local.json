@@ -8,5 +8,9 @@
       "Bash(copy:*)",
       "Bash(npx vite build)"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "supabase"
+  ],
+  "enableAllProjectMcpServers": true
 }
